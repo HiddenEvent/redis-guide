@@ -14,15 +14,25 @@ public class ListExam {
                 jedis.rpush("stack1", "bbb");
                 jedis.rpush("stack1", "ccc");
                 /*
-                List<String> stack1 = jedis.lrange("stack1", 0, -1);
-                stack1.forEach(System.out::println);
+                    List<String> stack1 = jedis.lrange("stack1", 0, -1);
+                    stack1.forEach(System.out::println);
                 */
                 System.out.println(jedis.rpop("stack1"));
                 System.out.println(jedis.rpop("stack1"));
                 System.out.println(jedis.rpop("stack1"));
 
-
                 // 2. queue
+                jedis.rpush("queue1", "zzzz");
+                jedis.rpush("queue1", "aaaa");
+                jedis.rpush("queue1", "cccc");
+                /*
+                    List<String> stack1 = jedis.lrange("stack1", 0, -1);
+                    stack1.forEach(System.out::println);
+                */
+                System.out.println(jedis.rpop("queue1"));
+                System.out.println(jedis.rpop("queue1"));
+                System.out.println(jedis.rpop("queue1"));
+
                 // 3. blocking queue
 
             }
