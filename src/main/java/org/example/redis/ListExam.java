@@ -33,7 +33,13 @@ public class ListExam {
                 System.out.println(jedis.rpop("queue1"));
                 System.out.println(jedis.rpop("queue1"));
 
-                // 3. blocking queue
+                // 3. block brpop, blpop
+                while (true) {
+                    List<String> brpop = jedis.brpop(10, "queue:blocking"); // 10초동안 blocking
+                    if (brpop != null) {
+                        brpop.forEach(System.out::println);
+                    }
+                }
 
             }
         }
